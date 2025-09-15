@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landscaping Service Intake</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="popup-overlay" id="popup-overlay">
+        <div class="popup-container">
+            <button class="close-btn" id="close-btn" aria-label="Close">&times;</button>
+            
+            <!-- Card 1: Client Type Selection -->
+            <div class="card" id="card-1" data-card="1">
+                <h2>Select Client Type</h2>
+                <div class="option-group">
+                    <button class="option-btn" data-value="residence">
+                        <span class="icon">🏠</span>
+                        <span>Residence</span>
+                    </button>
+                    <button class="option-btn" data-value="business">
+                        <span class="icon">🏢</span>
+                        <span>Business</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 2: Service Selection -->
+            <div class="card" id="card-2" data-card="2">
+                <h2>Select Service</h2>
+                <div class="option-group">
+                    <button class="option-btn" data-value="landscape">
+                        <span class="icon">🌳</span>
+                        <span>Landscape Project</span>
+                    </button>
+                    <button class="option-btn" data-value="turf">
+                        <span class="icon">🌿</span>
+                        <span>Premium Turf Care</span>
+                    </button>
+                    <button class="option-btn" data-value="mowing">
+                        <span class="icon">🏡</span>
+                        <span>Lawn Mowing</span>
+                    </button>
+                    <button class="option-btn" data-value="gardening">
+                        <span class="icon">🌸</span>
+                        <span>Gardening Only</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 3: Name Input Branch 1 -->
+            <div class="card" id="card-3" data-card="3">
+                <h2>Your Information</h2>
+                <form class="card-form">
+                    <div class="form-group">
+                        <label for="name-branch1">Full Name</label>
+                        <input type="text" id="name-branch1" name="name" required>
+                    </div>
+                    <button type="button" class="next-btn">Next</button>
+                </form>
+            </div>
+
+            <!-- Card 4: Property Address Branch 1 -->
+            <div class="card" id="card-4" data-card="4">
+                <h2>Property Address</h2>
+                <form class="card-form">
+                    <div class="form-group">
+                        <label for="property-address">Property Address</label>
+                        <textarea id="property-address" name="propertyAddress" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="different-billing" name="differentBilling">
+                            <span>Billing address is different from property address</span>
+                        </label>
+                    </div>
+                    <button type="button" class="next-btn">Next</button>
+                </form>
+            </div>
+
+            <!-- Card 5: Billing Address Branch 1 -->
+            <div class="card" id="card-5" data-card="5">
+                <h2>Billing Address</h2>
+                <form class="card-form">
+                    <div class="form-group">
+                        <label for="billing-address">Billing Address</label>
+                        <textarea id="billing-address" name="billingAddress" rows="3" required></textarea>
+                    </div>
+                    <button type="button" class="next-btn">Next</button>
+                </form>
+            </div>
+
+            <!-- Card 6: Phone Number Branch 1 -->
+            <div class="card" id="card-6" data-card="6">
+                <h2>Contact Information</h2>
+                <form class="card-form">
+                    <div class="form-group">
+                        <label for="phone-branch1">Phone Number</label>
+                        <input type="tel" id="phone-branch1" name="phone" required>
+                    </div>
+                    <button type="button" class="next-btn">Next</button>
+                </form>
+            </div>
+
+            <!-- Card 7: Email Address Branch 1 -->
+            <div class="card" id="card-7" data-card="7">
+                <h2>Email Address</h2>
+                <form class="card-form">
+                    <div class="form-group">
+                        <label for="email-branch1">Email Address</label>
+                        <input type="email" id="email-branch1" name="email" required>
+                    </div>
+                    <button type="button" class="next-btn">Next</button>
+                </form>
+            </div>
+
+            <!-- Card 8: How Did You Hear Branch 1 -->
+            <div class="card" id="card-8" data-card="8">
+                <h2>How Did You Hear About Us?</h2>
+                <div class="option-group">
+                    <button class="option-btn" data-value="google">
+                        <span class="icon">🔍</span>
+                        <span>Google Search</span>
+                    </button>
+                    <button class="option-btn" data-value="referral">
+                        <span class="icon">👥</span>
+                        <span>Referral</span>
+                    </button>
+                    <button class="option-btn" data-value="social">
+                        <span class="icon">📱</span>
+                        <span>Social Media</span>
+                    </button>
+                    <button class="option-btn" data-value="other">
+                        <span class="icon">📝</span>
+                        <span>Other</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 9: Project Description -->
+            <div class="card" id="card-9" data-card="9">
+                <h2>Project Description</h2>
+                <form class="card-form">
+                    <div class="form-group">
+                        <label for="project-description">Brief description of your project needs</label>
+                        <textarea id="project-description" name="projectDescription" rows="4" required></textarea>
+                    </div>
+                    <button type="button" class="next-btn">Next</button>
+                </form>
+            </div>
+
+            <!-- Card 10: Budget Selection -->
+            <div class="card" id="card-10" data-card="10">
+                <h2>Budget Range</h2>
+                <div class="option-group">
+                    <button class="option-btn" data-value="under500">
+                        <span class="icon">💰</span>
+                        <span>Under $1000</span>
+                    </button>
+                    <button class="option-btn" data-value="500-1500">
+                        <span class="icon">💰</span>
+                        <span>$1000 - $5000</span>
+                    </button>
+                    <button class="option-btn" data-value="1500-5000">
+                        <span class="icon">💰</span>
+                        <span>$5000 - $15,000</span>
+                    </button>
+                    <button class="option-btn" data-value="over5000">
+                        <span class="icon">💰</span>
+                        <span>$15,000 - $30,000</span>
+                    </button>
+                    <button class="option-btn" data-value="over5000">
+                        <span class="icon">💰</span>
+                        <span>$30,000 - $50,000</span>
+                    </button>
+                        <button class="option-btn" data-value="over5000">
+                        <span class="icon">💰</span>
+                        <span>$50,000 - $100,000</span>
+                    </button>
+                     <button class="option-btn" data-value="over5000">
+                        <span class="icon">💰</span>
+                        <span>Over $100,000</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 11: Thank You Branch 1 -->
+            <div class="card" id="card-11" data-card="11">
+                <h2>Thank You!</h2>
+                <div class="completion-message">
+                    <span class="icon">✨</span>
+                    <p>Thank you for your interest in our landscaping services. We will contact you within 24 hours to discuss your project in detail.</p>
+                </div>
+                <button type="button" class="close-final-btn">Close</button>
+            </div>
+
+            <!-- Card 12: Name Input Branch 2 -->
+            <div class="card" id="card-12" data-card="12">
+                <h2>Your Information</h2>
+                <form class="card-form">
+                    <div class="form-group">
+                        <label for="name-branch2">Full Name</label>
+                        <input type="text" id="name-branch2" name="name" required>
+                    </div>
+                    <button type="button" class="next-btn">Next</button>
+                </form>
+            </div>
+
+            <!-- Card 13: Property Address Branch 2 -->
+            <div class="card" id="card-13" data-card="13">
+                <h2>Property Address</h2>
+                <form class="card-form">
+                    <div class="form-group">
+                        <label for="property-address-2">Property Address</label>
+                        <textarea id="property-address-2" name="propertyAddress" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="different-billing-2" name="differentBilling">
+                            <span>Billing address is different from property address</span>
+                        </label>
+                    </div>
+                    <button type="button" class="next-btn">Next</button>
+                </form>
+            </div>
+
+            <!-- Card 14: Billing Address Branch 2 -->
+            <div class="card" id="card-14" data-card="14">
+                <h2>Billing Address</h2>
+                <form class="card-form">
+                    <div class="form-group">
+                        <label for="billing-address-2">Billing Address</label>
+                        <textarea id="billing-address-2" name="billingAddress" rows="3" required></textarea>
+                    </div>
+                    <button type="button" class="next-btn">Next</button>
+                </form>
+            </div>
+
+            <!-- Card 15: Phone Number Branch 2 -->
+            <div class="card" id="card-15" data-card="15">
+                <h2>Contact Information</h2>
+                <form class="card-form">
+                    <div class="form-group">
+                        <label for="phone-branch2">Phone Number</label>
+                        <input type="tel" id="phone-branch2" name="phone" required>
+                    </div>
+                    <button type="button" class="next-btn">Next</button>
+                </form>
+            </div>
+
+            <!-- Card 16: Email Address Branch 2 -->
+            <div class="card" id="card-16" data-card="16">
+                <h2>Email Address</h2>
+                <form class="card-form">
+                    <div class="form-group">
+                        <label for="email-branch2">Email Address</label>
+                        <input type="email" id="email-branch2" name="email" required>
+                    </div>
+                    <button type="button" class="next-btn">Next</button>
+                </form>
+            </div>
+
+            <!-- Card 17: How Did You Hear Branch 2 -->
+            <div class="card" id="card-17" data-card="17">
+                <h2>How Did You Hear About Us?</h2>
+                <div class="option-group">
+                    <button class="option-btn" data-value="google">
+                        <span class="icon">🔍</span>
+                        <span>Google Search</span>
+                    </button>
+                    <button class="option-btn" data-value="referral">
+                        <span class="icon">👥</span>
+                        <span>Referral</span>
+                    </button>
+                    <button class="option-btn" data-value="social">
+                        <span class="icon">📱</span>
+                        <span>Social Media</span>
+                    </button>
+                    <button class="option-btn" data-value="other">
+                        <span class="icon">📝</span>
+                        <span>Other</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 18: Service Selection Branch 2 -->
+            <div class="card" id="card-18" data-card="18">
+                <h2>Select Services</h2>
+                <form class="card-form">
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="services" value="biweekly-mowing">
+                            <span>Bi-weekly Mowing</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="services" value="weekly-mowing">
+                            <span>Weekly Mowing & Turf Care</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="services" value="fertilization">
+                            <span>Fertilization</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="services" value="irrigation">
+                            <span>Irrigation Turn On/Off</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="services" value="gardening">
+                            <span>Master Garden Care</span>
+                        </label>
+                    </div>
+                    <button type="button" class="next-btn">Next</button>
+                </form>
+            </div>
+
+            <!-- Card 19: Lawn Size -->
+            <div class="card" id="card-19" data-card="19">
+                <h2>Lawn Size</h2>
+                <h3>size of mowable turf</h3>
+                <div class="option-group">
+                    <button class="option-btn" data-value="small">
+                        <span class="icon">🏡</span>
+                        <span>Small - less than 1 acre</span>
+                    </button>
+                    <button class="option-btn" data-value="medium">
+                        <span class="icon">🏡</span>
+                        <span>Medium - less than 2 acres</span>
+                    </button>
+                    <button class="option-btn" data-value="large">
+                        <span class="icon">🏡</span>
+                        <span>Large - less than 3 acres</span>
+                    </button>
+                    <button class="option-btn" data-value="extra-large">
+                        <span class="icon">🏡</span>
+                        <span>Extra Large - less than 4 acres</span>
+                    </button>
+                    <button class="option-btn" data-value="massive">
+                        <span class="icon">🏡</span>
+                        <span>Massive - less than 5 acres</span>
+                           <button class="option-btn" data-value="massive">
+                        <span class="icon">🏡</span>
+                        <span>Real Big - 5 acres or more</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 20: Fertilization Type -->
+            <div class="card" id="card-20" data-card="20">
+                <h2>Fertilization Type</h2>
+                <div class="option-group">
+                    <button class="option-btn" data-value="gold">
+                        <span class="icon">🌱</span>
+                        <span>Gold - 4 applications per year with macronutrient poduct</span>
+                    </button>
+                    <button class="option-btn" data-value="creme">
+                        <span class="icon">🌿</span>
+                        <span>Crème de la Crème - 5 applications per year with macro and microntrient organic product, spot treatment for dead spots, lime and soil testing</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 21: Garden Frequency -->
+            <div class="card" id="card-21" data-card="21">
+                <h2>Master Garden Care Frequency</h2>
+                <div class="option-group">
+                    <button class="option-btn" data-value="monthly">
+                        <span class="icon">📅</span>
+                        <span>Monthly</span>
+                    </button>
+                    <button class="option-btn" data-value="biweekly">
+                        <span class="icon">📅</span>
+                        <span>Bi-weekly</span>
+                    </button>
+                    <button class="option-btn" data-value="weekly">
+                        <span class="icon">📅</span>
+                        <span>Weekly</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card 22: Contact Soon -->
+            <div class="card" id="card-22" data-card="22">
+                <h2>We'll Contact You Soon</h2>
+                <div class="completion-message">
+                    <span class="icon">📞</span>
+                    <p>Your service selection requires a personalized consultation. We will contact you within 24 hours to discuss your specific needs and provide a custom quote.</p>
+                </div>
+                <button type="button" class="close-final-btn">Close</button>
+            </div>
+
+            <!-- Card 23: Special Offer -->
+            <div class="card" id="card-23" data-card="23">
+                <h2>Special Offer</h2>
+                <div class="offer-message">
+                    <span class="icon">💰</span>
+                    <p>First mow special pricing available! Continue to schedule your service and take advantage of our new customer discount.</p>
+                </div>
+                <button type="button" class="next-btn">Continue</button>
+            </div>
+
+            <!-- Card 24: Appointment Scheduling -->
+            <div class="card" id="card-24" data-card="24">
+                <h2>Schedule Appointment</h2>
+                <form class="card-form">
+                    <div class="form-group">
+                        <label for="appointment-date">Preferred Date</label>
+                        <input type="date" id="appointment-date" name="appointmentDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="appointment-time">Preferred Time</label>
+                        <select id="appointment-time" name="appointmentTime" required>
+                            <option value="">Select time</option>
+                            <option value="8:00">8:00 AM</option>
+                            <option value="9:00">9:00 AM</option>
+                            <option value="10:00">10:00 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="13:00">1:00 PM</option>
+                            <option value="14:00">2:00 PM</option>
+                            <option value="15:00">3:00 PM</option>
+                            <option value="16:00">4:00 PM</option>
+                            <option value="17:00">5:00 PM</option>
+                        </select>
+                    </div>
+                    <button type="button" class="next-btn">Next</button>
+                </form>
+            </div>
+
+            <!-- Card 25: Credit Card Info -->
+            <div class="card" id="card-25" data-card="25">
+                <h2>Payment Information</h2>
+                <form class="card-form">
+                    <div class="form-group">
+                        <label for="card-name">Name on Card</label>
+                        <input type="text" id="card-name" name="cardName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="card-number">Card Number</label>
+                        <input type="text" id="card-number" name="cardNumber" placeholder="1234 5678 9012 3456" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="expiry-date">Expiry Date</label>
+                            <input type="text" id="expiry-date" name="expiryDate" placeholder="MM/YY" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" name="cvv" placeholder="123" required>
+                        </div>
+                    </div>
+                    <button type="button" class="next-btn">Next</button>
+                </form>
+            </div>
+
+            <!-- Card 26: Order Review -->
+            <div class="card" id="card-26" data-card="26">
+                <h2>Order Review</h2>
+                <div class="order-summary">
+                    <div class="summary-section">
+                        <h3>Service Summary</h3>
+                        <div id="service-summary"></div>
+                    </div>
+                    <div class="summary-section">
+                        <h3>Lawn Size</h3>
+                        <div id="lawn-size-summary"></div>
+                    </div>
+                    <div class="summary-section">
+                        <h3>Appointment</h3>
+                        <div id="appointment-summary"></div>
+                    </div>
+                    <div class="summary-section">
+                        <h3>Total Price</h3>
+                        <div id="total-price" class="price-display"></div>
+                    </div>
+                </div>
+                <button type="button" class="confirm-btn">Confirm Order</button>
+            </div>
+
+            <!-- Card 27: Single Service Confirmation -->
+            <div class="card" id="card-27" data-card="27">
+                <h2>Order Confirmed</h2>
+                <div class="completion-message">
+                    <span class="icon">✅</span>
+                    <p>Your mowing service has been scheduled successfully. We will send you a confirmation email with all the details.</p>
+                </div>
+                <button type="button" class="close-final-btn">Close</button>
+            </div>
+
+            <!-- Card 28: Multiple Services Confirmation -->
+            <div class="card" id="card-28" data-card="28">
+                <h2>Services Confirmed</h2>
+                <div class="completion-message">
+                    <span class="icon">✅</span>
+                    <p>Your services have been scheduled successfully. We will send you a confirmation email with all the details.</p>
+                    <div id="confirmed-services-list"></div>
+                </div>
+                <button type="button" class="close-final-btn">Close</button>
+            </div>
+
+            <!-- Back Button -->
+            <button class="back-btn" id="back-btn">← Back</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,518 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+/* Popup Overlay */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.popup-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: popupOpen 0.3s ease-out;
+}
+
+@keyframes popupOpen {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    z-index: 10;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Card Styles */
+.card {
+    display: none;
+    padding: 40px 30px 30px;
+    text-align: center;
+    min-height: 400px;
+    animation: cardSlideIn 0.4s ease-out;
+}
+
+.card.active {
+    display: block;
+}
+
+@keyframes cardSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.card h2 {
+    margin-bottom: 30px;
+    color: #2c3e50;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+/* Option Groups */
+.option-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.option-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 8px;
+    padding: 15px 20px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.option-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.option-btn:active {
+    transform: translateY(0);
+}
+
+.option-btn .icon {
+    font-size: 20px;
+}
+
+/* Branch Card Styling */
+.card[data-card="3"] .option-btn,
+.card[data-card="12"] .option-btn {
+    background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+}
+
+/* Service Card Styling */
+.card[data-card="18"] .option-btn,
+.card[data-card="19"] .option-btn,
+.card[data-card="20"] .option-btn,
+.card[data-card="21"] .option-btn {
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+}
+
+/* Payment Card Styling */
+.card[data-card="23"] .option-btn,
+.card[data-card="24"] .option-btn,
+.card[data-card="25"] .option-btn,
+.card[data-card="26"] .option-btn {
+    background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);
+}
+
+/* Contact Card Styling */
+.card[data-card="22"] .option-btn {
+    background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);
+}
+
+/* Form Styles */
+.card-form {
+    text-align: left;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Checkbox Styles */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.checkbox-label:hover {
+    background-color: #f8f9fa;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #667eea;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 25px;
+}
+
+.checkbox-group .checkbox-label {
+    justify-content: flex-start;
+    text-align: left;
+}
+
+/* Button Styles */
+.next-btn,
+.confirm-btn,
+.close-final-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 30px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+}
+
+.next-btn:hover,
+.confirm-btn:hover,
+.close-final-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.back-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    background: #95a5a6;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: none;
+}
+
+.back-btn.visible {
+    display: block;
+}
+
+.back-btn:hover {
+    background: #7f8c8d;
+}
+
+/* Completion Messages */
+.completion-message {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-left: 4px solid #27ae60;
+}
+
+.completion-message .icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.completion-message p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #2c3e50;
+}
+
+/* Offer Message */
+.offer-message {
+    background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+    border-radius: 8px;
+    padding: 30px;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.offer-message .icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.offer-message p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Order Summary */
+.order-summary {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 25px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.summary-section {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.summary-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.summary-section h3 {
+    color: #2c3e50;
+    font-size: 16px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.summary-section div {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.price-display {
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    color: #27ae60 !important;
+}
+
+/* Confirmed Services List */
+#confirmed-services-list {
+    background: white;
+    border-radius: 6px;
+    padding: 15px;
+    margin-top: 20px;
+    border-left: 4px solid #27ae60;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .popup-container {
+        width: 95%;
+        margin: 10px;
+        max-height: 95vh;
+    }
+    
+    .card {
+        padding: 30px 20px 20px;
+        min-height: 350px;
+    }
+    
+    .card h2 {
+        font-size: 20px;
+        margin-bottom: 25px;
+    }
+    
+    .option-btn {
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .completion-message,
+    .offer-message {
+        padding: 20px;
+    }
+    
+    .completion-message .icon,
+    .offer-message .icon {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 480px) {
+    .popup-container {
+        width: 100%;
+        height: 100vh;
+        border-radius: 0;
+        max-height: 100vh;
+    }
+    
+    .card {
+        padding: 25px 15px 15px;
+        min-height: 300px;
+    }
+    
+    .option-group {
+        gap: 10px;
+    }
+    
+    .option-btn {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+    
+    .close-btn {
+        top: 10px;
+        right: 15px;
+    }
+}
+
+/* Animation for card transitions */
+.card.fade-out {
+    animation: cardFadeOut 0.3s ease-in forwards;
+}
+
+@keyframes cardFadeOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+}
+
+/* Loading states */
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #667eea;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Focus styles for accessibility */
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+    .popup-overlay {
+        display: none;
+    }
+}
